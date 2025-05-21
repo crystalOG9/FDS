@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+#define MAX 32
+int stack[MAX];
+int top = -1;
+
+void push(int value) {
+    if (top == MAX - 1) {
+        printf("Stack Overflow\n");
+    } else {
+        top++;
+        stack[top] = value;
+    }
+}
+
+int pop() {
+    if (top == -1) {
+        printf("Stack Underflow\n");
+        return -1;
+    } else {
+        int val = stack[top];
+        top--;
+        return val;
+    }
+}
+
+int main() {
+    int num;
+    printf("Enter a decimal number: ");
+    scanf("%d", &num);
+
+    if (num == 0) {
+        printf("Binary number is: 0\n");
+        return 0;
+    }
+
+    while (num > 0) {
+        int remainder = num % 2;
+        push(remainder);
+        num = num / 2;
+    }
+
+    printf("Binary number is: ");
+    while (top != -1) {
+        printf("%d", pop());
+    }
+    printf("\n");
+
+    return 0;
+}
