@@ -1,0 +1,30 @@
+#include<stdio.h>
+
+int main() {
+    int a[10], i, n, k, pos = -1;
+    
+    printf("Enter the size of array: ");
+    scanf("%d", &n);
+    
+    printf("Enter the array elements: ");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+    }
+    
+    printf("Enter the element to search: ");
+    scanf("%d", &k);
+    
+    for(i = 0; i < n; i++) {
+        if(a[i] == k) {
+            pos = i;
+            printf("Element found at %d position\n", pos);
+            break;
+        }
+    }
+    
+    if(pos == -1) {
+        printf("Element is not available\n");
+    }
+    
+    return 0;
+}
