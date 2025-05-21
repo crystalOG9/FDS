@@ -1,0 +1,81 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int a[5], n = 5;
+int top = -1;
+
+void push() {
+    int ele;
+    if (top == n - 1) 
+    {
+      printf("stack is Overflow\n");
+    }
+    
+    else 
+    {
+        top++;
+        printf("Enter the element to push : ");
+        scanf("%d", &ele);
+        a[top] = ele;
+    }
+}
+    
+void pop() 
+{
+    if (top == -1) 
+    {
+        printf("Stack is Underflow\n");
+    } else 
+    {
+        printf("The element pop from the stack is %d\n", a[top]);
+        top--;
+    }
+}
+
+void display() 
+{
+    if (top == -1) 
+    {
+        printf("Stack is empty\n");
+    } 
+    else 
+    {
+        printf("satck elements: ");
+        for (int i = top; i >= 0; i--) 
+        {
+          printf("%d\t", a[i]);
+        }
+          printf("\n");
+    }
+}
+
+int main() {
+    int ch, choice = 0;
+    do {
+        printf("\n1.Push\n2.Pop\n3.Display\n4.Exit\n");
+        printf("Select your choice: ");
+        scanf("%d", &ch);
+
+        switch(ch) {
+            case 1:
+                push();
+                break;
+            case 2:
+                pop();
+                break;
+            case 3:
+                display();
+                break;
+            case 4:
+                exit(0);
+                break;
+            default:
+                printf("Invalid choice, try again!\n");
+        }
+
+        printf("\nDo you want to continue? [Press 1]: ");
+        scanf("%d", &choice);
+    } while(choice == 1);
+
+    return 0;
+}
